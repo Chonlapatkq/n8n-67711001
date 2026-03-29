@@ -38,10 +38,10 @@
             </thead>
             <tbody>
               <tr v-for="(item, index) in users" :key="index">
-                <td>{{ item.productid }}</td>
-                <td>{{ item.productname }}</td>
-                <td>{{ item.number }}</td>
-                <td>{{ item.price }}</td>
+                <td>{{ item.Pid }}</td>
+                <td>{{ item.Pname }}</td>
+                <td>{{ item.Pqty }}</td>
+                <td>{{ item.Pprice }}</td>
               </tr>
             </tbody>
           </table>
@@ -67,7 +67,7 @@ const loading = ref(false)
 const fetchData = async () => {
   loading.value = true
   try {
-    const response = await fetch('http://localhost:5678/webhook/data')
+    const response = await fetch('http://localhost:5678/webhook/GetProduct')
     const data = await response.json()
     users.value = data
   } catch (error) {
